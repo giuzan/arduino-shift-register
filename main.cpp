@@ -11,7 +11,7 @@
   GND  -|_____|-  Q7'
 */
 
-#include<iostream>
+#include <iostream>
 #include "shift-register.h"
 #include "shift-register-output.h"
 
@@ -26,6 +26,7 @@ int main()
     cout << "********************************" << endl << endl;
 
     ShiftRegister sr;
+    ShiftRegisterOutput& o = sr.getOutput();
 
     bool value;
 
@@ -43,7 +44,7 @@ int main()
 
     cout << "> Not Output Enable (/OE): ";
     cin >> value;
-    sr.setInputNotMasterReset(value);
+    sr.setInputNotOutputEnable(value);
 
     cout << "> Not Master Reset (/MR): ";
     cin >> value;
@@ -52,7 +53,7 @@ int main()
     for (int i=0; i<ShiftRegisterOutput::DIMENSION; i++) {
         cout << "> Pin " << i << ": (Q" << i << "): ";
         cin >> value;
-        sr.getOutput()->setPin(i, value);
+        o.setPin(i, value);
     }
 
     cout << endl;

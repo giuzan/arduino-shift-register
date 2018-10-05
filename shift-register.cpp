@@ -18,72 +18,18 @@ using namespace std;
 
 ShiftRegister::ShiftRegister()
 {
-    this->inputData = false;
-    this->inputLatch = false;
-    this->inputClock = false;
-    this->inputNotOutputEnable = false;
-    this->inputNotMasterReset = true;
     this->output = new ShiftRegisterOutput();
+    this->input = new ShiftRegisterInput();
 }
 
-bool ShiftRegister::getInputData()
+ShiftRegisterOutput& ShiftRegister::getOutput()
 {
-    return this->inputData;
+    return *(this->output);
 }
 
-bool ShiftRegister::getInputLatch()
+ShiftRegisterInput& ShiftRegister::getInput()
 {
-    return this->inputLatch;
-}
-
-bool ShiftRegister::getInputClock()
-{
-    return this->inputClock;
-}
-
-bool ShiftRegister::getInputNotOutputEnable()
-{
-    return this->inputNotOutputEnable;
-}
-
-bool ShiftRegister::getInputNotMasterReset()
-{
-    return this->inputNotMasterReset;
-}
-
-ShiftRegisterOutput *ShiftRegister::getOutput()
-{
-    return this->output;
-}
-
-void ShiftRegister::setInputData(bool status)
-{
-    this->inputData = status;
-}
-
-void ShiftRegister::setInputLatch(bool status)
-{
-    this->inputLatch = status;
-}
-
-void ShiftRegister::setInputClock(bool status)
-{
-    this->inputClock = status;
-}
-
-void ShiftRegister::setInputNotOutputEnable(bool status)
-{
-    this->inputNotOutputEnable = status;
-}
-
-void ShiftRegister::setInputNotMasterReset(bool status)
-{
-    this->inputNotMasterReset = status;
-}
-
-void ShiftRegister::setOutput(ShiftRegisterOutput *output)
-{
-    this->output = output;
+    return *(this->input)
 }
 
 string ShiftRegister::toString()

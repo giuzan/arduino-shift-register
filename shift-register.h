@@ -27,7 +27,8 @@ class ShiftRegister
         bool inputClock;
         bool inputNotOutputEnable;
         bool inputNotMasterReset;
-        ShiftRegisterOutput *output;
+        ShiftRegisterOutput* output;
+        ShiftRegisterInput* input;
 
     public:
         ShiftRegister();
@@ -36,13 +37,15 @@ class ShiftRegister
         bool getInputClock();
         bool getInputNotOutputEnable();
         bool getInputNotMasterReset();
-        ShiftRegisterOutput *getOutput();
+        ShiftRegisterOutput& getOutput();
+        ShiftRegisterInput& getInput();
         void setInputData(bool);
         void setInputLatch(bool);
         void setInputClock(bool);
         void setInputNotOutputEnable(bool);
         void setInputNotMasterReset(bool);
-        void setOutput(ShiftRegisterOutput *);
+        void setOutput(ShiftRegisterOutput&);
+        void setInput(ShiftRegisterInput&);
         string toString();
 };
 
