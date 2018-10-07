@@ -15,6 +15,7 @@
 #define SHIFT_REGISTER_H_INCLUDED
 
 #include <string>
+#include "shift-register-input.h"
 #include "shift-register-output.h"
 
 using namespace std;

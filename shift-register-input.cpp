@@ -73,16 +73,17 @@ void ShiftRegisterInput::setNotMasterReset(bool status)
     this->notMasterReset = status;
 }
 
-string toString()
+string ShiftRegisterInput::toString()
 {
     string s = "Input:\n";
 
     s += "  Data (DS):\t\t\t" + to_string(this->data) + "\n";
     s += "  Latch (ST_CP):\t\t" + to_string(this->latch) + "\n";
-    // TODO
-    s += "  Clock (SH_CP):\t\t" + to_string(this->inputClock) + "\n";
-    s += "  Not Output Enable (/OE):\t" + to_string(this->inputNotOutputEnable)
+    s += "  Clock (SH_CP):\t\t" + to_string(this->clock) + "\n";
+    s += "  Not Output Enable (/OE):\t" + to_string(this->notOutputEnable)
             + "\n";
-    s += "  Not Master Reset (/MR):\t" + to_string(this->inputNotMasterReset)
+    s += "  Not Master Reset (/MR):\t" + to_string(this->notMasterReset)
             + "\n";
+
+    return s;
 }

@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include "shift-register.h"
+#include "shift-register-input.h"
 #include "shift-register-output.h"
 
 using namespace std;
@@ -25,38 +26,39 @@ int main()
     cout << "*  ShiftRegister Testing Tool  *" << endl;
     cout << "********************************" << endl << endl;
 
-    ShiftRegister sr;
-    ShiftRegisterOutput& o = sr.getOutput();
+    ShiftRegister shiftRegister;
+    ShiftRegisterOutput& shiftRegisterOutput = shiftRegister.getOutput();
+    ShiftRegisterInput& shiftRegisterInput = shiftRegister.getInput();
 
     bool value;
 
     cout << "> Data (DS): ";
     cin >> value;
-    sr.setInputData(value);
+    shiftRegisterInput.setData(value);
 
     cout << "> Latch (ST_CP): ";
     cin >> value;
-    sr.setInputLatch(value);
+    shiftRegisterInput.setLatch(value);
 
     cout << "> Data (SH_CP): ";
     cin >> value;
-    sr.setInputClock(value);
+    shiftRegisterInput.setClock(value);
 
     cout << "> Not Output Enable (/OE): ";
     cin >> value;
-    sr.setInputNotOutputEnable(value);
+    shiftRegisterInput.setNotOutputEnable(value);
 
     cout << "> Not Master Reset (/MR): ";
     cin >> value;
-    sr.setInputNotMasterReset(value);
+    shiftRegisterInput.setNotMasterReset(value);
 
     for (int i=0; i<ShiftRegisterOutput::DIMENSION; i++) {
         cout << "> Pin " << i << ": (Q" << i << "): ";
         cin >> value;
-        o.setPin(i, value);
+        shiftRegisterOutput.setPin(i, value);
     }
 
     cout << endl;
 
-    cout << sr.toString() << endl;
+    cout << shiftRegister.toString() << endl;
 }
