@@ -49,7 +49,21 @@ ShiftRegister& ShiftRegisterManager::getShiftRegister()
 
 void ShiftRegisterManager::init()
 {
-    // TODO if there is at least a pin = 0, throw an exception.
+    if (
+        this->dataPin == 0
+        || this->latchPin == 0
+        || this->clockPin == 0
+        || this->masterResetPin == 0
+        || this->outputEnablePin == 0
+    ) {
+        throw "There are not undefined pins!";
+    }
+
+    /*pinMode(this->latchPin, OUTPUT);
+    pinMode(this->clockPin, OUTPUT);
+    pinMode(this->dataPin, OUTPUT);
+    pinMode(this->masterResetPin, OUTPUT);
+    pinMode(this->outputEnablePin, OUTPUT);*/
 }
 
 void ShiftRegisterManager::setOutputPins(bool*)
