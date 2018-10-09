@@ -11,13 +11,15 @@
   GND  -|_____|-  Q7'
 */
 
-#ifndef SHIFT_REGISTER_MANAGER_INCLUDED_H
-#define SHIFT_REGISTER_MANAGER_INCLUDED_H
+#ifndef SHIFT_REGISTER_INCLUDED_H
+#define SHIFT_REGISTER_INCLUDED_H
 
-class ShiftRegisterManager
+#include "Arduino.h"
+
+class ShiftRegister
 {
     private:
-        ShiftRegister* shiftRegister;
+        int dimension;
         int dataPin;
         int latchPin;
         int clockPin;
@@ -25,11 +27,13 @@ class ShiftRegisterManager
         int outputEnablePin;
 
     public:
-        ShiftRegisterManager();
-        ShiftRegisterManager(int, int, int, int, int);
-        ShiftRegister& getShiftRegister();
+        ShiftRegister();
+        ShiftRegister(int, int, int, int, int, int);
         void init();
         void setOutputPins(bool*);
+        void disableOutput();
+        void enableOutput();
+        int getDimension() const;
 };
 
 #endif
