@@ -7,57 +7,57 @@
   <h3>Wiring</h3>
   <p><img src="https://github.com/giuzan/arduino-shift-register/blob/master/doc/files/circuit_single_shift_register.svg"></p>
   <h3>Code</h3>
-  <pre>
-    
-    #include <shift_register.h>
-  
-    int dimension = 8; // Number of output pins
-    int dataPin = 8; // Pin connected to Data Pin (DS)
-    int latchPin = 9; // Pin connected to Latch Pin (ST_CP)
-    int clockPin = 10; // Pin connected to Clock Pin (SH_CP)
-    int masterResetPin = 11; // Pin connected to Master Reset Pin (/MR)
-    int outputEnablePin = 12; // Pin connected to Output Enable Pin (/OE)
+  <code>
+#include <shift_register.h>
 
-    ShiftRegister sr = ShiftRegister(
-      dimension,
-      dataPin,
-      latchPin,
-      clockPin,
-      masterResetPin,
-      outputEnablePin
-    );
+int dimension = 8; // Number of output pins
+int dataPin = 8; // Pin connected to Data Pin (DS)
+int latchPin = 9; // Pin connected to Latch Pin (ST_CP)
+int clockPin = 10; // Pin connected to Clock Pin (SH_CP)
+int masterResetPin = 11; // Pin connected to Master Reset Pin (/MR)
+int outputEnablePin = 12; // Pin connected to Output Enable Pin (/OE)
 
-    int count = 0;
+ShiftRegister sr = ShiftRegister(
+  dimension,
+  dataPin,
+  latchPin,
+  clockPin,
+  masterResetPin,
+  outputEnablePin
+);
 
-    void setup()
-    {
-      Serial.begin(9600);
-      sr.init();
-    }
+int count = 0;
 
-    void loop()
-    {
-      bool output[dimension][dimension] = {
-        { true, false, false, false, false, false, false, false,},
-        {false,  true, false, false, false, false, false, false,},
-        {false, false,  true, false, false, false, false, false,},
-        {false, false, false,  true, false, false, false, false,},
-        {false, false, false, false,  true, false, false, false,},
-        {false, false, false, false, false,  true, false, false,},
-        {false, false, false, false, false, false,  true, false,},
-        {false, false, false, false, false, false, false,  true,},
-      };
+void setup()
+{
+  Serial.begin(9600);
+  sr.init();
+}
 
-      Serial.print(count);
-      Serial.print("\n\r");
+void loop()
+{
+  bool output[dimension][dimension] = {
+    { true, false, false, false, false, false, false, false,},
+    {false,  true, false, false, false, false, false, false,},
+    {false, false,  true, false, false, false, false, false,},
+    {false, false, false,  true, false, false, false, false,},
+    {false, false, false, false,  true, false, false, false,},
+    {false, false, false, false, false,  true, false, false,},
+    {false, false, false, false, false, false,  true, false,},
+    {false, false, false, false, false, false, false,  true,},
+  };
 
-      sr.setOutputPins(output[count]);
+  Serial.print(count);
+  Serial.print("\n\r");
 
-      count = (count + 1) % dimension;
+  sr.setOutputPins(output[count]);
 
-      delay(10000);
-    }
-  </pre>
+  count = (count + 1) % dimension;
+
+  delay(10000);
+}
+  </code>
+  <p>You can find the example project file <a href="https://github.com/giuzan/arduino-shift-register/blob/master/doc/example_sketches/single_shift_register_example.ino">here</a></p>
   
   <h2>Multiple Shift Registers</h2>
   <p>TODO</p>
