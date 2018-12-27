@@ -7,8 +7,8 @@
   <h3>Wiring</h3>
   <p><img src="https://github.com/giuzan/arduino-shift-register/blob/master/doc/files/circuit_single_shift_register.svg"></p>
   <h3>Code</h3>
-  <code>
- 
+  <pre>
+
     #include <shift_register.h>
 
     int dimension = 8; // Number of output pins
@@ -57,8 +57,8 @@
 
       delay(10000);
     }
- 
-  </code>
+
+  </pre>
   <p>You can find the example project file <a href="https://github.com/giuzan/arduino-shift-register/blob/master/doc/example_sketches/single_shift_register_example.ino">here</a></p>
   
   <h2>Multiple Shift Registers</h2>
