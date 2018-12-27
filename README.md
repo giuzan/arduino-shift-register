@@ -7,7 +7,7 @@
   <h3>Wiring</h3>
   <p><img src="https://github.com/giuzan/arduino-shift-register/blob/master/doc/files/circuit_single_shift_register.svg"></p>
   <h3>Code</h3>
-  <p>You can find <a href="https://github.com/giuzan/arduino-shift-register/blob/master/doc/example_sketches/single_shift_register_example.ino">here</a> an example project file.</p>
+  <p>You can find <a href="https://github.com/giuzan/arduino-shift-register/blob/master/doc/example_sketches/single_shift_register_example.ino">here</a> an example sketch.</p>
   
   <h2>Multiple Shift Registers</h2>
   <p>TODO</p>
